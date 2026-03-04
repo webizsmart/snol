@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중년 놀이터 데모</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Login & AI Authentication Screen -->
+        <div id="login-screen" class="screen active">
+            <div class="login-content">
+                <div class="logo-large">
+                    <h1>중년 놀이터</h1>
+                    <p>우리들의 두 번째 청춘 🌿</p>
+                </div>
+
+                <div class="ai-auth-box" id="ai-auth-box">
+                    <div class="scanner-frame">
+                        <div class="scanner-line"></div>
+                        <span class="material-symbols-rounded face-icon">face</span>
+                    </div>
+                    <p class="auth-text" id="auth-text">얼굴 인식을 위해 카메라를 바라봐주세요.</p>
+                </div>
+
+                <button class="btn-primary btn-large" id="start-auth-btn">
+                    <span class="material-symbols-rounded">fingerprint</span> 50+ 간편 인증하기
+                </button>
+            </div>
+        </div>
+
+        <!-- Main App Screen -->
+        <div id="main-screen" class="screen hidden">
+            <!-- Header -->
+            <header class="app-header">
+                <h1 class="logo" id="header-title">중년 놀이터</h1>
+                <div class="header-actions">
+                    <button class="icon-btn"><span class="material-symbols-rounded">search</span></button>
+                    <button class="icon-btn" style="position:relative;">
+                        <span class="material-symbols-rounded">notifications</span>
+                        <div class="badge-dot"></div>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="app-content">
+
+                <!-- ================= HOME VIEW ================= -->
+                <div id="view-home" class="view active">
+                    <section class="greeting-sec">
+                        <h2><strong>스마트한</strong><br>우리만의 모임생활 ✨</h2>
+                    </section>
+
+                    <!-- Categories (New) -->
+                    <section class="category-grid">
+                        <div class="cat-item">
+                            <div class="cat-icon bg-gradient-1">🌱</div>
+                            <span>인생 2막</span>
+                        </div>
+                        <div class="cat-item">
+                            <div class="cat-icon bg-gradient-2">💪</div>
+                            <span>건강 챙기기</span>
+                        </div>
+                        <div class="cat-item">
+                            <div class="cat-icon bg-gradient-3">☕</div>
+                            <span>커피/수다</span>
+                        </div>
+                        <div class="cat-item">
+                            <div class="cat-icon bg-gradient-4">📸</div>
+                            <span>멋진 인생샷</span>
+                        </div>
+                    </section>
+
+                    <!-- Age Rooms (New) -->
+                    <section class="age-rooms mt-4">
+                        <div class="sec-header">
+                            <h3>중년의 사랑방 🏠</h3>
+                        </div>
+                        <div class="age-grid">
+                            <div class="age-card age-50">
+                                <span class="age-num">5</span>
+                                <span class="age-text">0대 <br>사랑방</span>
+                            </div>
+                            <div class="age-card age-60">
+                                <span class="age-num">6</span>
+                                <span class="age-text">0대 이상<br>사랑방</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Daily Match -->
+                    <section class="card-sec mt-4">
+                        <div class="sec-header">
+                            <h3>오늘의 인연 ✨</h3>
+                        </div>
+                        <div class="glass-card match-card">
+                            <div class="match-img-wrapper">
+                                <img src="file:///C:/Users/webiz/.gemini/antigravity/brain/a3975dba-9589-47bb-bb01-418a5ed91b45/dating_image_1772636181027.png"
+                                    alt="추천 인연">
+                                <div class="match-badge">98% 매칭</div>
+                            </div>
+                            <div class="match-info">
+                                <h4>이영희 (58세)</h4>
+                                <p class="match-desc"><span class="material-symbols-rounded">location_on</span> 서울 강남구 ·
+                                    등산/요리</p>
+                                <div class="match-actions">
+                                    <button class="btn-outline">프로필 보기</button>
+                                    <button class="btn-primary">대화 걸기 <span
+                                            class="material-symbols-rounded">chat</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ================= COMMUNITY VIEW ================= -->
+                <div id="view-community" class="view hidden">
+                    <div class="filter-tabs">
+                        <button class="filter-btn active" data-tab="comm-list">추천</button>
+                        <button class="filter-btn" data-tab="comm-list">신규</button>
+                        <button class="filter-btn" data-tab="comm-list">내 주변</button>
+                        <button class="filter-btn" data-tab="comm-sch">일정</button>
+                    </div>
+
+                    <div id="comm-list-container">
+                        <div class="community-list">
+                            <div class="glass-card community-card list-mode">
+                                <img src="file:///C:/Users/webiz/.gemini/antigravity/brain/a3975dba-9589-47bb-bb01-418a5ed91b45/community_image_1772636162879.png"
+                                    alt="등산 모임">
+                                <div class="community-content">
+                                    <div class="tags"><span class="tag">아웃도어</span></div>
+                                    <h4>주말 북한산 둘레길 트레킹 🌲</h4>
+                                    <p class="members"><span class="material-symbols-rounded">person</span> 멤버 45명</p>
+                                </div>
+                            </div>
+
+                            <div class="glass-card community-card list-mode">
+                                <img src="file:///C:/Users/webiz/.gemini/antigravity/brain/a3975dba-9589-47bb-bb01-418a5ed91b45/hero_image_1772636142421.png"
+                                    alt="커피 모임">
+                                <div class="community-content">
+                                    <div class="tags"><span class="tag">맛집·커피</span></div>
+                                    <h4>평일 오후 나른한 커피 한잔 ☕</h4>
+                                    <p class="members"><span class="material-symbols-rounded">person</span> 멤버 12명</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Schedule List -->
+                    <div id="comm-sch-container" class="hidden">
+                        <div class="sec-header mb-1">
+                            <h3>가까운 일정에 바로 참여해 볼까요?</h3>
+                        </div>
+                        <div class="glass-card schedule-card">
+                            <div class="sch-date">
+                                <span class="month">5월</span>
+                                <span class="day">1</span>
+                            </div>
+                            <div class="sch-info">
+                                <h4>야외 라이브 카페 투어 🎤</h4>
+                                <p><span class="material-symbols-rounded">group</span> 8명 참여중 (정원 10명)</p>
+                                <p><span class="material-symbols-rounded">location_on</span> 미사리 라이브 카페촌</p>
+                            </div>
+                        </div>
+                        <div class="glass-card schedule-card">
+                            <div class="sch-date">
+                                <span class="month">5월</span>
+                                <span class="day">12</span>
+                            </div>
+                            <div class="sch-info">
+                                <h4>북한산 둘레길 트레킹 🌲</h4>
+                                <p><span class="material-symbols-rounded">group</span> 14명 참여중 (정원 15명)</p>
+                                <p><span class="material-symbols-rounded">location_on</span> 북한산성 입구 매표소 앞</p>
+                            </div>
+                        </div>
+                        <button class="btn-outline btn-large mt-2"> <span class="material-symbols-rounded"
+                                style="vertical-align:bottom;">add</span> 새 일정 만들기</button>
+                    </div>
+                </div>
+
+                <!-- ================= DATING VIEW ================= -->
+                <div id="view-dating" class="view hidden">
+                    <div class="dating-filters">
+                        <span><span class="material-symbols-rounded">tune</span> 필터: 서울 전체, 55~65세</span>
+                    </div>
+                    <div class="dating-grid">
+                        <div class="dating-card">
+                            <img src="file:///C:/Users/webiz/.gemini/antigravity/brain/a3975dba-9589-47bb-bb01-418a5ed91b45/dating_image_1772636181027.png"
+                                alt="프로필">
+                            <div class="dating-info">
+                                <h4>이영희 (58)</h4>
+                                <p>서울 · 요리, 등산</p>
+                            </div>
+                        </div>
+                        <div class="dating-card">
+                            <img src="file:///C:/Users/webiz/.gemini/antigravity/brain/a3975dba-9589-47bb-bb01-418a5ed91b45/hero_image_1772636142421.png"
+                                alt="프로필">
+                            <div class="dating-info">
+                                <h4>박미선 (55)</h4>
+                                <p>경기 · 여행, 골프</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= CHAT VIEW ================= -->
+                <div id="view-chat" class="view hidden">
+                    <div class="chat-list">
+                        <!-- Group Chat Item -->
+                        <div class="chat-item unread" onclick="openOverlay('overlay-chat')">
+                            <div class="chat-avatar">
+                                <div class="group-avatar">🌲</div>
+                            </div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <h4>중년 뜨개질/등산 모임</h4>
+                                    <span class="time">방금</span>
+                                </div>
+                                <p class="last-msg">모임장님 덕분에 뜨개질에 내공을 느끼게 되었어요 😊</p>
+                            </div>
+                            <div class="chat-badge">3</div>
+                        </div>
+
+                        <!-- Private Chat Item -->
+                        <div class="chat-item">
+                            <div class="chat-avatar">
+                                <img src="file:///C:/Users/webiz/.gemini/antigravity/brain/a3975dba-9589-47bb-bb01-418a5ed91b45/dating_image_1772636181027.png"
+                                    alt="Avatar">
+                            </div>
+                            <div class="chat-details">
+                                <div class="chat-header">
+                                    <h4>이영희</h4>
+                                    <span class="time">어제</span>
+                                </div>
+                                <p class="last-msg">안녕하세요! 요리 좋아하신다고 들었어요~</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= MY PAGE VIEW ================= -->
+                <div id="view-my" class="view hidden">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <span class="material-symbols-rounded">person</span>
+                        </div>
+                        <div class="profile-info">
+                            <h2>김철수 <span>(60세)</span></h2>
+                            <p>서울 만남의광장 · 자유로운 영혼</p>
+                        </div>
+                        <button class="btn-outline btn-sm">프로필 수정</button>
+                    </div>
+
+                    <div class="menu-list">
+                        <!-- Wallet Item -->
+                        <a href="#" class="menu-item highlight" onclick="openOverlay('overlay-wallet')">
+                            <div class="menu-left">
+                                <span class="material-symbols-rounded"
+                                    style="color:#4ade80;">account_balance_wallet</span>
+                                모임 통장 내역
+                            </div>
+                            <div class="menu-right" style="display:flex;align-items:center;">
+                                <span class="wallet-bal">142,000원</span>
+                                <span class="material-symbols-rounded">chevron_right</span>
+                            </div>
+                        </a>
+                        <a href="#" class="menu-item">
+                            <div class="menu-left">
+                                <span class="material-symbols-rounded">groups</span> 내가 가입한 모임
+                            </div>
+                            <span class="material-symbols-rounded">chevron_right</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bottom-padding"></div>
+            </main>
+
+            <!-- Bottom Navigation -->
+            <nav class="bottom-nav">
+                <a href="#" class="nav-item active" data-target="home">
+                    <span class="material-symbols-rounded">home</span>
+                    <span>홈</span>
+                </a>
+                <a href="#" class="nav-item" data-target="community">
+                    <span class="material-symbols-rounded">groups</span>
+                    <span>모임</span>
+                </a>
+                <a href="#" class="nav-item" data-target="dating">
+                    <span class="material-symbols-rounded">favorite</span>
+                    <span>데이트</span>
+                </a>
+                <a href="#" class="nav-item" data-target="chat">
+                    <span class="material-symbols-rounded" style="position:relative;">
+                        chat
+                        <div class="badge-dot" style="top:2px;right:-2px;width:8px;height:8px;"></div>
+                    </span>
+                    <span>채팅</span>
+                </a>
+                <a href="#" class="nav-item" data-target="my">
+                    <span class="material-symbols-rounded">person</span>
+                    <span>마이</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- ================= OVERLAYS (Full Screen Modals) ================= -->
+
+        <!-- Chat Room Overlay -->
+        <div id="overlay-chat" class="overlay-screen">
+            <header class="app-header header-overlay">
+                <div class="header-left">
+                    <button class="icon-btn close-overlay" onclick="closeOverlay('overlay-chat')"><span
+                            class="material-symbols-rounded">arrow_back</span></button>
+                    <h2 class="chat-room-title">중년 뜨개질/등산 모임</h2>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn"><span class="material-symbols-rounded">menu</span></button>
+                </div>
+            </header>
+            <main class="chat-area">
+                <div class="date-divider">2026년 5월 10일</div>
+                <div class="msg-row incoming">
+                    <img src="file:///C:/Users/webiz/.gemini/antigravity/brain/a3975dba-9589-47bb-bb01-418a5ed91b45/hero_image_1772636142421.png"
+                        class="msg-avatar" alt="profile">
+                    <div class="msg-content">
+                        <span class="msg-name">손재주만렙</span>
+                        <div class="msg-bubble">다들 고생하셨습니다~^^</div>
+                        <span class="msg-time">오후 6:30</span>
+                    </div>
+                </div>
+                <div class="msg-row outgoing">
+                    <div class="msg-content">
+                        <div class="msg-bubble">모임장님 덕분에 뜨개질에 내공을 느끼게 되었어요</div>
+                        <span class="msg-time">오후 6:32</span>
+                    </div>
+                </div>
+            </main>
+            <div class="chat-input-area">
+                <button class="icon-btn"><span class="material-symbols-rounded">add</span></button>
+                <input type="text" placeholder="메시지를 입력하세요">
+                <button class="icon-btn send-btn"><span class="material-symbols-rounded">send</span></button>
+            </div>
+        </div>
+
+        <!-- Wallet Overlay -->
+        <div id="overlay-wallet" class="overlay-screen">
+            <header class="app-header header-overlay">
+                <div class="header-left">
+                    <button class="icon-btn close-overlay" onclick="closeOverlay('overlay-wallet')"><span
+                            class="material-symbols-rounded">arrow_back</span></button>
+                    <h2>모바일 가상 통장</h2>
+                </div>
+            </header>
+            <main class="app-content content-overlay">
+                <div class="glass-card wallet-card">
+                    <p class="wallet-label">잔액</p>
+                    <h3>142,000<span>원</span></h3>
+                    <div class="account-info">
+                        <p>중년사랑방 (마이뱅크) <br> <span class="acc-num">123-4567-890</span></p>
+                    </div>
+                    <div class="wallet-actions">
+                        <button class="btn-primary btn-sm">계좌 복사</button>
+                        <button class="btn-outline btn-sm">출금계좌변경</button>
+                    </div>
+                </div>
+
+                <div class="transaction-history mt-4">
+                    <div class="sec-header mb-1">
+                        <h3>입출금 내역</h3>
+                    </div>
+                    <div class="trans-list">
+                        <div class="trans-item">
+                            <div class="trans-left">
+                                <span class="trans-title">김철수 (회비)</span>
+                                <span class="trans-date">2026.05.01</span>
+                            </div>
+                            <div class="trans-right plus">+ 20,000원</div>
+                        </div>
+                        <div class="trans-item">
+                            <div class="trans-left">
+                                <span class="trans-title">오후의 여유 카페</span>
+                                <span class="trans-date">2026.04.28</span>
+                            </div>
+                            <div class="trans-right minus">- 45,000원</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
